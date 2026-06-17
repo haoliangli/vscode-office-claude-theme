@@ -87,9 +87,16 @@
     border: 1px solid rgba(236, 233, 226, .10) !important;
     border-radius: 8px !important;
 }
-/* tables: cell padding + top-align so rows breathe and don't fold */
+/* tables: constrain to the reading column so content wraps (Typora-like) instead
+   of overflowing/clipping; cell padding + top-align so rows breathe and don't fold */
+#vditor[data-editor-theme="Claude Dark"] .vditor-reset table {
+    width: 100% !important;
+    table-layout: auto !important;
+}
 #vditor[data-editor-theme="Claude Dark"] .vditor-reset table th,
 #vditor[data-editor-theme="Claude Dark"] .vditor-reset table td {
     padding: .5em .85em !important;
     vertical-align: top !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
 }
