@@ -1,5 +1,7 @@
 _build/
 dist/
+__pycache__/
+*.pyc
 
 # Optional fonts are never committed (Anthropic fonts are proprietary; Noto is large).
 # build.sh sources them locally; users supply their own. See SOURCES.md.
