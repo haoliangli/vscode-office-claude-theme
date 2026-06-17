@@ -1,5 +1,8 @@
 # vscode-office Claude theme
 
+[![CI](https://github.com/haoliangli/vscode-office-claude-theme/actions/workflows/ci.yml/badge.svg)](https://github.com/haoliangli/vscode-office-claude-theme/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 A **Claude-style Markdown editor theme** for the VSCode extension
 [`cweijan.vscode-office`](https://github.com/cweijan/vscode-office) (Office Viewer).
 It adds two entries — **Claude** (warm light) and **Claude Dark** — to the
