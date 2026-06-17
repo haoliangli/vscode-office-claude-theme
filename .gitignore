@@ -1,0 +1,9 @@
+_build/
+dist/
+
+# Optional fonts are never committed (Anthropic fonts are proprietary; Noto is large).
+# build.sh sources them locally; users supply their own. See SOURCES.md.
+overlay/resource/vditor/css/fonts/*.ttf
+overlay/resource/vditor/css/fonts/*.otf
+overlay/resource/vditor/css/fonts/*.woff
+overlay/resource/vditor/css/fonts/*.woff2

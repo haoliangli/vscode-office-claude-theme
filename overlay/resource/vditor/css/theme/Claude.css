@@ -1,0 +1,87 @@
+/* Claude (warm light) — Markdown editor theme for cweijan.vscode-office
+   Palette aligned to Claude Desktop. Fonts + typography mirror the Typora
+   claude-theme: serif content (Anthropic Serif -> Noto Serif SC for CJK),
+   mono code, centered reading column.
+   @font-face is injected into base.css (Anthropic = base64, Noto = url).
+
+   IMPORTANT: vditor's content box `.vditor-reset` is itself a <pre>, so font
+   selectors must NOT key off `pre` (that matches the whole content). Code is
+   targeted via <code> and highlighted code (.hljs) instead. */
+
+:root {
+    --hr-bg: #e6e0d4;
+    --ext-border-color: #e6e0d4;
+    --bg-color: #faf8f3;          /* warm cream paper */
+    --front-color: #1f1e1d;       /* warm near-black */
+    --second-bg-color: #f0ece3;
+    --code-bg-color: #f0e7e0;
+    --list-hover-color: #c2410c;  /* Claude orange accent */
+    --dropdown-hover-background: #f0e7e0;
+    --error-color: #b3261e;
+}
+
+/* --- Type: serif everywhere except code & math; mono only on code/.hljs --- */
+#vditor[data-editor-theme="Claude"] .vditor-reset,
+#vditor[data-editor-theme="Claude"] .vditor-reset *:not(code):not(.hljs):not(.hljs *):not(.katex):not(.katex *) {
+    font-family: "Anthropic Serif Web Text", Georgia, "Times New Roman", "Noto Serif SC", "Songti SC", serif !important;
+}
+#vditor[data-editor-theme="Claude"] .vditor-reset code,
+#vditor[data-editor-theme="Claude"] .vditor-reset .hljs,
+#vditor[data-editor-theme="Claude"] .vditor-reset .hljs * {
+    font-family: "Anthropic Mono Variable", ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace !important;
+}
+
+/* --- Typography: centered reading column + comfortable rhythm (Typora-like) --- */
+#vditor[data-editor-theme="Claude"] .vditor-reset {
+    max-width: 860px !important;
+    margin: 0 auto !important;
+    padding: 2.5rem 2.2rem 4rem 2.2rem !important;
+    font-size: 16px !important;
+    line-height: 1.75 !important;
+}
+#vditor[data-editor-theme="Claude"] .vditor-reset h1,
+#vditor[data-editor-theme="Claude"] .vditor-reset h2,
+#vditor[data-editor-theme="Claude"] .vditor-reset h3,
+#vditor[data-editor-theme="Claude"] .vditor-reset h4,
+#vditor[data-editor-theme="Claude"] .vditor-reset h5,
+#vditor[data-editor-theme="Claude"] .vditor-reset h6 {
+    color: #1f1e1d !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+}
+#vditor[data-editor-theme="Claude"] .vditor-reset h1 { font-size: 1.7em !important;  margin: 1.4em 0 .55em !important; }
+#vditor[data-editor-theme="Claude"] .vditor-reset h2 { font-size: 1.42em !important; margin: 1.3em 0 .5em !important; }
+#vditor[data-editor-theme="Claude"] .vditor-reset h3 { font-size: 1.2em !important;  margin: 1.1em 0 .4em !important; }
+#vditor[data-editor-theme="Claude"] .vditor-reset h4 { font-size: 1.05em !important; margin: 1em 0 .35em !important; }
+#vditor[data-editor-theme="Claude"] .vditor-reset p,
+#vditor[data-editor-theme="Claude"] .vditor-reset li { line-height: 1.75 !important; }
+#vditor[data-editor-theme="Claude"] .vditor-reset p { margin: .65em 0 !important; }
+
+/* --- Colours --- */
+#vditor[data-editor-theme="Claude"] .vditor-content a {
+    color: #c2410c !important;                       /* Claude orange links */
+}
+#vditor[data-editor-theme="Claude"] .vditor-reset code:not(.hljs):not([class*="language"]) {
+    background-color: rgba(194, 65, 12, .10) !important;
+    color: #c2410c !important;                       /* orange inline code only */
+    padding: .12em .35em !important;
+    border-radius: 4px !important;
+}
+/* frontmatter: muted gray on a soft card, not loud orange */
+#vditor[data-editor-theme="Claude"] .vditor-reset .vditor-wysiwyg__block[data-type="yaml-front-matter"] {
+    background-color: #f4f1ea !important;
+    border-radius: 8px !important;
+}
+#vditor[data-editor-theme="Claude"] .vditor-reset [data-type="yaml-front-matter"] code,
+#vditor[data-editor-theme="Claude"] .vditor-reset [data-type="yaml-front-matter"] code * {
+    color: #8a857c !important;
+    background-color: transparent !important;
+}
+#vditor[data-editor-theme="Claude"] .vditor-content blockquote {
+    border-left: 3px solid rgba(194, 65, 12, .4) !important;
+    color: #57534e !important;                       /* warm gray */
+}
+#vditor[data-editor-theme="Claude"] .vditor-reset .hljs {
+    background-color: #f4f1ea !important;            /* cream code block */
+    border-radius: 8px !important;
+}
