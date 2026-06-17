@@ -11,9 +11,9 @@
 :root {
     --hr-bg: #e6e0d4;
     --ext-border-color: #e6e0d4;
-    --bg-color: #faf8f3;          /* warm cream paper */
+    --bg-color: #faf9f5;          /* warm cream paper (canonical Claude, lighter) */
     --front-color: #1f1e1d;       /* warm near-black */
-    --second-bg-color: #f0ece3;
+    --second-bg-color: #f5f3ec;
     --code-bg-color: #f0e7e0;
     --list-hover-color: #c2410c;  /* Claude orange accent */
     --dropdown-hover-background: #f0e7e0;
@@ -60,16 +60,20 @@
 /* --- Colours --- */
 #vditor[data-editor-theme="Claude"] .vditor-content a {
     color: #c2410c !important;                       /* Claude orange links */
+    text-decoration: underline !important;
+    text-underline-offset: 2px !important;
 }
 #vditor[data-editor-theme="Claude"] .vditor-reset code:not(.hljs):not([class*="language"]) {
-    background-color: rgba(194, 65, 12, .10) !important;
+    background-color: rgba(194, 65, 12, .07) !important;
     color: #c2410c !important;                       /* orange inline code only */
     padding: .12em .35em !important;
     border-radius: 4px !important;
+    white-space: nowrap !important;                  /* keep code chips intact (fixes table folding) */
 }
-/* frontmatter: muted gray on a soft card, not loud orange */
+/* frontmatter: muted gray on a soft, near-page card */
 #vditor[data-editor-theme="Claude"] .vditor-reset .vditor-wysiwyg__block[data-type="yaml-front-matter"] {
-    background-color: #f4f1ea !important;
+    background-color: #fbf8f2 !important;
+    border: 1px solid rgba(31, 30, 29, .07) !important;
     border-radius: 8px !important;
 }
 #vditor[data-editor-theme="Claude"] .vditor-reset [data-type="yaml-front-matter"] code,
@@ -82,6 +86,13 @@
     color: #57534e !important;                       /* warm gray */
 }
 #vditor[data-editor-theme="Claude"] .vditor-reset .hljs {
-    background-color: #f4f1ea !important;            /* cream code block */
+    background-color: #fffdf9 !important;            /* near-white code block — pops on cream */
+    border: 1px solid rgba(31, 30, 29, .08) !important;
     border-radius: 8px !important;
+}
+/* tables: cell padding + top-align so rows breathe and don't fold */
+#vditor[data-editor-theme="Claude"] .vditor-reset table th,
+#vditor[data-editor-theme="Claude"] .vditor-reset table td {
+    padding: .5em .85em !important;
+    vertical-align: top !important;
 }

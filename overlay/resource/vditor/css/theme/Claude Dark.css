@@ -58,12 +58,15 @@
 /* --- Colours --- */
 #vditor[data-editor-theme="Claude Dark"] .vditor-content a {
     color: #e8915f !important;                        /* warm orange links */
+    text-decoration: underline !important;
+    text-underline-offset: 2px !important;
 }
 #vditor[data-editor-theme="Claude Dark"] .vditor-reset code:not(.hljs):not([class*="language"]) {
-    background-color: rgba(232, 145, 95, .14) !important;
+    background-color: rgba(232, 145, 95, .12) !important;
     color: #e8915f !important;                        /* orange inline code only */
     padding: .12em .35em !important;
     border-radius: 4px !important;
+    white-space: nowrap !important;                  /* keep code chips intact (fixes table folding) */
 }
 /* frontmatter: muted gray on a soft card, not loud orange */
 #vditor[data-editor-theme="Claude Dark"] .vditor-reset .vditor-wysiwyg__block[data-type="yaml-front-matter"] {
@@ -80,6 +83,13 @@
     color: #b8b4ab !important;
 }
 #vditor[data-editor-theme="Claude Dark"] .vditor-reset .hljs {
-    background-color: #2e2d2b !important;
+    background-color: #1f1e1c !important;             /* darker than page — pops */
+    border: 1px solid rgba(236, 233, 226, .10) !important;
     border-radius: 8px !important;
+}
+/* tables: cell padding + top-align so rows breathe and don't fold */
+#vditor[data-editor-theme="Claude Dark"] .vditor-reset table th,
+#vditor[data-editor-theme="Claude Dark"] .vditor-reset table td {
+    padding: .5em .85em !important;
+    vertical-align: top !important;
 }
