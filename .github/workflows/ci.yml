@@ -1,0 +1,31 @@
+name: CI
+
+# Runs on every push to main and on pull requests.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # shellcheck is preinstalled on the runner. Fail only on real errors,
+      # not style nits.
+      - name: ShellCheck build.sh
+        run: shellcheck --severity=error scripts/build.sh
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Compile inject.py
+        run: python -m py_compile scripts/inject.py
+
+      - name: inject.py smoke test
+        run: python tests/test_inject.py

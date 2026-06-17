@@ -91,7 +91,7 @@ def patch_fonts(css: Path, fonts: Path) -> None:
         else:
             print(f"  note: {fname} absent — CJK will fall back to Songti SC")
     css.write_text(text + "\n" + "\n".join(blocks) + "\n", encoding="utf-8")
-    print(f"  base.css @font-face injected ({len(DATA_FONTS)} inline + CJK url)")
+    print(f"  base.css @font-face injected ({len(blocks) - 1} face(s))")
 
 
 def patch_extension_js(js: Path) -> None:
